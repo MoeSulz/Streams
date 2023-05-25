@@ -39,7 +39,13 @@ public class Program {
         System.out.println("Oldest Age : " + maxAge);
         System.out.println("Youngest Age : " + minAge);
 
+        System.out.println("Enter a name to search:");
+        String searched = scan.nextLine();
 
+        List<Person> searchName = people.stream()
+                .filter(search -> search.getFirstName().contains(searched) || search.getLastName().contains(searched))
+                .collect(Collectors.toList());
 
+        System.out.println(searchName);
     }
 }
