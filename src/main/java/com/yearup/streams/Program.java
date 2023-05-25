@@ -1,6 +1,7 @@
 package com.yearup.streams;
 
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Scanner;
 
@@ -19,6 +20,14 @@ public class Program {
         people.add(new Person("Marie", "Black", 34));
         people.add(new Person("Dennis", "Gooze", 14));
         people.add(new Person("Benson", "Harrison", 46));
+
+
+
+       int totalAge = people.stream().map(Person::getAge)
+               .reduce(0,(sum, num) -> sum += num);
+       double averageAge = (double) totalAge / people.size();
+        System.out.println(averageAge);
+
 
 
 
