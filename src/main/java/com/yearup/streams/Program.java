@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Program {
     static Scanner scan = new Scanner(System.in);
@@ -28,6 +29,15 @@ public class Program {
        double averageAge = (double) totalAge / people.size();
         System.out.println(averageAge);
 
+
+
+        List<Integer> sortedAges = people.stream()
+                .map(Person::getAge)
+                .sorted().collect(Collectors.toList());
+        int maxAge = sortedAges.get(sortedAges.size() -1);
+        int minAge = sortedAges.get(0);
+        System.out.println("Oldest Age : " + maxAge);
+        System.out.println("Youngest Age : " + minAge);
 
 
 
